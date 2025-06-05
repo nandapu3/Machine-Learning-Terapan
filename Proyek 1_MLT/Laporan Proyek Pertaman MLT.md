@@ -24,7 +24,8 @@ Tujuan dari pernyataan masalah:
 - Menyediakan informasi proyeksi hasil panen yang dapat digunakan oleh pengambil kebijakan dan petani untuk perencanaan produksi serta mitigasi risiko gagal panen
 - Mendukung upaya peningkatan ketahanan pangan nasional dan global melalui penerapan teknologi prediktif yang andal
 ### Solution statements
-- Menerapkan beberapa algoritma machine learning regresi, seperti Random Forest Regressor dan Gradient Boosting Machines (XGBoost), untuk memodelkan hubungan antar variabel serta melakukan perbandingan kinerja model berdasarkan matrik evaluasi untuk memilih model yang paling akurat dan efektif
+Solusi dari pernyataan masalah:
+- Menerapkan beberapa algoritma machine learning regresi, seperti Linier Regression, Random Forest Regressor dan Gradient Boosting Machines (XGBoost), untuk memodelkan hubungan antar variabel serta melakukan perbandingan kinerja model berdasarkan matrik evaluasi untuk memilih model yang paling akurat dan efektif
 - Melakukan evaluasi model menggunakan metrik kuantitatif seperti MAE (Mean Absolute Error), RMSE, dan R-squared untuk mengukur akurasi prediksi hasil panen oleh masing-masing model.
 
 
@@ -34,51 +35,61 @@ Dataset yang digunakan dalam proyek ini bersumber dari data open source [Crop Yi
 ### Variabel-variabel pada Cro Yield Dataset adalah sebagai berikut:
 -	**Area (Country)** : Kolom ini berisikan nama negara atau wilayah dimana data berasal, yang  merupakan kategorikal tanpa adanya missing value.
 -	**Item** : Kolom berisikan jenis produk pertanian atau tanaman yang dianalisis, data ini berbentuk kategorikal.
--	**Year** : Tahun pengamatan data, yang merekam hasil pane dan variabel terkait secara longitudinal
+-	**Year** : Tahun pengamatan data, yang merekam hasil panen dan variabel terkait secara longitudinal
 -	**hg/ha_yield** : Variabel target berupa hasil panen hektogram per hektar (hg/ha), yang akan diprediksi.
 -	**average_rain_fall_mm_per_year** : Rata-rata curah hujan tahunan (mm), faktor lingkungan utama yang memengaruhi produksi.
 -	**pesticides_tonnes** : Jumlah pestisida yang digunakan dalam satuan ton, yang dapat berdampak pada hasil panen dan lingkungan.
 -	**avg_temp** : Suhu rata-rata tahunan dalam derajat Celsius, yang mempengaruhi pertumbuhan dan hasil tanaman.
 
 ### Exploratory Data Analysis (EDA):
-EDA dilakukan dengan memeriksa struktur data pada dataset yang digunakan. Dataset terdiri dari 28.242 entri dan 5 fitur numerik setelah transformasi log. Pemeriksaan awal menggunakan **df.info()** menunjukkan tidak ada nilai yang hilang. **df.describe()** memberikan gambaran tentang sebaran data, menunjukkan nilai rata-rata dan standar deviasi yang konsisten untuk setiap fitur. Tidak ditemukan duplikasi setelah pengecekan dengan **df.duplicated()**. Untuk lebih memahami data dilakukan visualisasi untuk beberapa poin berikut. 
+EDA dilakukan dengan memeriksa struktur data pada dataset yang digunakan. Dataset terdiri dari 28.242 entri dan 7 fitur. Pemeriksaan awal menggunakan `df.info()` menunjukkan tidak ada nilai yang hilang. `df.describe()` memberikan gambaran tentang sebaran data, menunjukkan nilai rata-rata dan standar deviasi yang konsisten untuk setiap fitur. Tidak ditemukan duplikasi setelah pengecekan dengan `df.duplicated()`. Untuk lebih memahami data dilakukan visualisasi untuk beberapa poin berikut. 
 -	**Matriks Boxplot**
- 
-Pada gambar diagram boxplot memperlihatkan bahwa fitur hg/ha_yield dan pesticides_tonnes memiliki banyak pencilan (ditunjukkan oleh titik-titik di luar whisker), menunjukkan adanya nilai ekstrim yang mungkin perlu diperhatikan atau ditangani lebih lanjut.
+  ![Boxplot](https://github.com/nandapu3/Machine-Learning-Terapan/blob/main/Proyek%201_MLT/download.png)
+Pada gambar diagram boxplot memperlihatkan bahwa fitur `hg/ha_yield` dan `pesticides_tonnes` memiliki banyak pencilan (ditunjukkan oleh titik-titik di luar whisker), menunjukkan adanya nilai ekstrim yang mungkin perlu diperhatikan atau ditangani lebih lanjut.
 -	**Matriks Distribusi**
- ![Boxplot](path/to/your/boxplot_image.png)
-Histogram Distribusi memperlihatkan bentuk distribusi dari setiap fitur. hg/ha_yield dan pesticides_tonnes memiliki distribusi miring ke kanan (right-skewed), menunjukkan banyak nilai rendah dan beberapa nilai yang sangat tinggi.
+  ![Histogram](https://github.com/nandapu3/Machine-Learning-Terapan/blob/main/Proyek%201_MLT/download%20(1).png)
+Histogram Distribusi memperlihatkan bentuk distribusi dari setiap fitur. `hg/ha_yield` dan `pesticides_tonnes` memiliki distribusi miring ke kanan (right-skewed), menunjukkan banyak nilai rendah dan beberapa nilai yang sangat tinggi.
 
 ## Data Preparation
-Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
-
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan proses data preparation yang dilakukan
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
+Data preparation dilakukan dengan menerapkan beberapa teknik yang diperlukan berdasarkan hasil yang diperoleh dari data understanding sebelumnya. Langkah-langkah Data Preparation ini penting untuk memastikan data dalam kondisi terbaik untuk pemodelan. Berikut ini beberapa teknik data preparation yang diterapkan:
+- **Menghapus Kolom yang tidak diperlukan:** Kolom atau fitur yang tidak memberikan informasi relevan (seperti: `Unnamed: 0`) dihapus dari dataset. Menghapus kolom yang tidak penting dilakukan untuk mencegah adanya noise dalam data dan memastikan model hanya bekerja dengan fitur yang relevan.
+- **Transformasi Logaritmik:** Transformasi logaritmik diterapkan pada dua fitur yang diketahui memiliki distribusi miring. Fitur ini mencakup `hg/ha_yield` dan `pesticides_tonnes` yang juga sebelumnya diketahui memiliki outlier. Namun, datanya bukan merupakan kesalahan input dan tidak bisa semata-mata dihapus. Transformasi logaritmik diterapkan dengan menggunakan `np.log1p()`. Data yang tidak terdistribusi normal dapat mempengaruhi kinerja model. **Log-transformation** membantu mendekatkan distribusi data ke distribusi normal dan meningkatkan kestabilan model.
+- **Encoding Kategorikal:** Mengonversi fitur kategorikal yaitu fitur `Area` dan `Item` menjadi angka menggunakan **Label Encoding**. Model regresi tidak bisa langsung bekerja dengan data kategorikal. **Label Encoding** mengubah kategori menjadi format numerik yang dapat diproses oleh model.
+- **Feature Scaling:** Menstandarisasi fitur numerik menggunakan **StandardScaler** untuk memastikan semua fitur berada dalam rentang yang seragam. Beberapa algoritma cukup sensitif terhadap skala fitur yang berbeda, sehingga **feature scaling** diterapkan untuk memastikan bahwa fitur dengan skala besar tidak memdominasi model.
+- **Data Splitting:** Membagi dataset menjadi data latih (80%) dan data uji (20%) menggunakan `train_test_split`. Pembagian dataset ini bertujuan agar model dapat dilatih dengan data latih yang cukup banyak dan diuji dengan data uji untuk mengevaluasi kinerjanya.
 
 ## Modeling
-Tahapan ini membahas mengenai model machine learning yang digunakan untuk menyelesaikan permasalahan. Anda perlu menjelaskan tahapan dan parameter yang digunakan pada proses pemodelan.
+Dalam pemodelan yang dilakukan dengan pendekatan regresi multivariat, beberapa model diterapkan pada data pelatihan untuk melihat kemungkinan model yang memiliki performa baik pada data yang dimiliki. Berikut ini beberapa model yang digunakan:
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan kelebihan dan kekurangan dari setiap algoritma yang digunakan.
-- Jika menggunakan satu algoritma pada solution statement, lakukan proses improvement terhadap model dengan hyperparameter tuning. **Jelaskan proses improvement yang dilakukan**.
-- Jika menggunakan dua atau lebih algoritma pada solution statement, maka pilih model terbaik sebagai solusi. **Jelaskan mengapa memilih model tersebut sebagai model terbaik**.
+- **Model Linear Regression**  
+  Model ini digunakan untuk memodelkan hubungan linear antara fitur dan target. Proses pemodelan dengan linear regression menemukan garis terbaik yang meminimalkan kesalahan antara nilai prediksi dan aktual. Pada pemodelan yang dilakukan, tidak ada parameter khusus yang diatur dan hanya menggunakan default setting.  
+  **Kelebihan:**  Model ini sederhana, mudah, dan cepat. Model ini juga mudah untuk diintegrasikan.  
+  **Kekurangan:**  Model ini tidak bisa menangani hubungan non-linear, juga sangat sensitif terhadap outliers.
+
+- **Model Random Forest Regression**  
+  Random Forest menggabungkan banyak pohon keputusan untuk menghasilkan prediksi yang lebih stabil dan akurat. Model ini dilatih dengan subset data acak dan memilih fitur acak pada setiap pohon. Parameter yang digunakan selama proses pemodelan yaitu `n_estimators` untuk jumlah pohon, `random_state` untuk konsistensi hasil.  
+  **Kelebihan:**  Model ini dapat menangani hubungan non-linear dan interaksi antar fitur, serta lebih robust terhadap overfitting.  
+  **Kekurangan:**  Memerlukan sumber komputasi dan waktu pelatihan yang lebih banyak karena model tergolong kompleks.
+
+- **Model XGBoost Regression**  
+  XGBoost menggunakan teknik gradient boosting untuk membangun pohon keputusan bertahap yang saling memperbaiki kesalahan. Parameter yang digunakan dalam proses pemodelan adalah `objective='reg:squarederror'` untuk regresi, `n_estimators` untuk jumlah pohon, dan `random_state` untuk konsistensi.  
+  **Kelebihan:**  Sangat efektif untuk dataset besar dan kompleks, memberikan akurasi yang sangat tinggi.  
+  **Kekurangan:**  Membutuhkan tuning hyperparameter lebih intensif dan lebih lambat dalam pelatihan dibandingkan Random Forest.
 
 ## Evaluation
-Pada bagian ini anda perlu menyebutkan metrik evaluasi yang digunakan. Lalu anda perlu menjelaskan hasil proyek berdasarkan metrik evaluasi yang digunakan.
+Pada tahap evaluasi model regresi ini, beberapa metrik digunakan untuk menilai performa model yang dibangun, yaitu **Mean Absolute Error (MAE)**, **Root Mean Squared Error (RMSE)**, dan **R-squared (R²)**.
 
-Sebagai contoh, Anda memiih kasus klasifikasi dan menggunakan metrik **akurasi, precision, recall, dan F1 score**. Jelaskan mengenai beberapa hal berikut:
-- Penjelasan mengenai metrik yang digunakan
-- Menjelaskan hasil proyek berdasarkan metrik evaluasi
+- **Mean Absolute Error (MAE):** mengukur rata-rata kesalahan absolut antara nilai yang diprediksi dan nilai yang sebenarnya. Semakin rendah MAE, semakin baik model memprediksi target.
+- **Root Mean Squared Error (RMSE):** mengukur akar dari rata-rata kesalahan antara nilai yang diprediksi dan nilai sebenarnya. RMSE menambahkan bobot pada kesalahan besar, sehingga lebih sensitif terhadap outliers.
+- **R-Squared (R²):** metrik ini mengukur seberapa baik sebuah model dalam menjelaskan variansi dalam data. Nilai R² berada dalam kisaran rentang 0 dan 1, dimana 1 menunjukkan model yang sempurna.
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
+Berdasarkan hasil evaluasi yang dilakukan menggunakan tiga metrik yang telah disebutkan, proyek ini memperoleh kinerja masing-masing dari tiga model yang dilatih, sebagai berikut:
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
+- **Linear Regression**  
+  Model Linear Regression menunjukkan kinerja yang kurang baik dengan R-squared sebesar 0.1075. Ini berarti bahwa model hanya mampu menjelaskan sekitar 10.75% dari variansi dalam data, yang menunjukkan bahwa hubungan linier antara fitur dan hasil panen tidak cukup kuat. MAE sebesar 0.7965 dan RMSE sebesar 0.8891 mengindikasikan bahwa prediksi yang dihasilkan oleh model ini memiliki kesalahan yang cukup besar. Dengan hasil evaluasi tersebut, dapat disimpulkan bahwa Linear Regression tidak efektif untuk memprediksi hasil panen pada dataset ini, karena model ini tidak dapat menangani hubungan yang lebih kompleks atau non-linier dalam data.
 
-**---Ini adalah bagian akhir laporan---**
+- **Random Forest Regression**  
+  Random Forest Regression menunjukkan hasil yang sangat baik dengan R-squared mencapai 0.9825, yang berarti model ini mampu menjelaskan 98.25% dari variansi dalam data. Dengan MAE yang sangat rendah (0.0605) dan RMSE (0.0175), model ini memberikan prediksi yang sangat akurat dan stabil. Random Forest mampu menangani hubungan non-linier antara fitur dan target serta mengurangi overfitting dengan baik. Hasil ini menunjukkan bahwa Random Forest adalah model terbaik di antara yang diuji, karena memberikan hasil yang sangat baik dalam memprediksi hasil panen.
 
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
-
+- **XGBoost Regression**  
+  XGBoost Regression juga memberikan hasil yang sangat baik dengan R-squared sebesar 0.9681, yang menunjukkan bahwa model ini mampu menjelaskan 96.81% dari variansi dalam data. Dengan MAE sebesar 0.1164 dan RMSE 0.0318, model ini memberikan akurasi yang tinggi meskipun sedikit lebih rendah dibandingkan dengan Random Forest. XGBoost dapat menangani dataset besar dan kompleks dengan baik, namun membutuhkan lebih banyak waktu pelatihan dan tuning hyperparameter untuk mendapatkan hasil optimal. Meskipun demikian, XGBoost tetap menjadi model yang sangat efektif dan memberikan hasil yang hampir setara dengan Random Forest.
