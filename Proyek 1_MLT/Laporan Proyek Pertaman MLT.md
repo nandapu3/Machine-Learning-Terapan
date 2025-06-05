@@ -2,14 +2,14 @@
 
 ## Domain Proyek
 
-Ketahanan pangan merupakan salah satu aspek penting dalam menjaga kesejahteraan dan stabilitas sebuah negara. Mewujudkan ketahanan pangan yang berkelanjutan telah menjadi topik penting dan prioritas utama dalam berbagai pertemuan yang diadakan oleh berbagai negara dan organisasi internasional [1]. Salah satu indikator utama ketahanan pangan adalah tercapainya produksi pangan yang konsisten dan mengalami peningkatan setiap tahunnya. Namun, hasil panen sangat dipengaruhi oleh berbagai faktor lingkungan, seperti curah hujan dan suhu rata-rata. Perubahan iklim dan penerapan input pertanian salah satunya pestisida, dapat menimbulkan ketidakpastian dalam produksi pangan [2]. Perubahan iklim dan penerapan input pertanian, termasuk pestisida, dapat menimbulkan ketidakpastian dalam produksi pangan, yang apabila terjadi gagal panen, dapat mengancam kestabilan ketahanan pangan nasional maupun global [3].
-Kemajuan teknologi yang semakin pesat, terutama dalam bidang data dan machine learning, membuka peluang besar untuk penerapan analisis prediktif dalam memodelkan dan memproyeksikan hasil panen berdasarkan berbagai variabel yang memengaruhinya. Analisis prediktif ini sangat penting karena dapat memberikan gambaran awal mengenai potensi hasil panen yang akan diperoleh berdasarkan faktor-faktor tersebut. Oleh karena itu, penerapan metode prediksi berbasis teknologi, terutama machine learning, menjadi langkah strategis untuk mendukung pengambilan keputusan yang lebih efektif dalam mengurangi risiko gagal panen yang pada akhirnya berpotensi mengakibatkan kekurangan pangan [4]. Dengan adanya proyeksi awal ini, pihak terkait dapat melakukan evaluasi dan pengambilan keputusan yang lebih baik guna mencegah terjadinya kekurangan pangan.
+Ketahanan pangan merupakan salah satu aspek penting dalam menjaga kesejahteraan dan stabilitas sebuah negara. Mewujudkan ketahanan pangan yang berkelanjutan telah menjadi topik penting dan prioritas utama dalam berbagai pertemuan yang diadakan oleh berbagai negara dan organisasi internasional [1]. Salah satu indikator utama ketahanan pangan adalah tercapainya produksi pangan yang konsisten dan mengalami peningkatan setiap tahunnya. Namun, hasil panen sangat dipengaruhi oleh berbagai faktor lingkungan, seperti curah hujan dan suhu rata-rata. Perubahan iklim dan penerapan input pertanian salah satunya pestisida, dapat menimbulkan ketidakpastian dalam produksi pangan [2]. Perubahan iklim dan penerapan input pertanian, termasuk pestisida, dapat menimbulkan ketidakpastian dalam produksi pangan, yang apabila terjadi gagal panen, dapat mengancam kestabilan ketahanan pangan nasional maupun global [3].  
+Kemajuan teknologi yang semakin pesat, terutama dalam bidang data dan machine learning, membuka peluang besar untuk penerapan analisis prediktif dalam memodelkan dan memproyeksikan hasil panen berdasarkan berbagai variabel yang memengaruhinya. Analisis prediktif ini sangat penting karena dapat memberikan gambaran awal mengenai potensi hasil panen yang akan diperoleh berdasarkan faktor-faktor tersebut. Oleh karena itu, penerapan metode prediksi berbasis teknologi, terutama machine learning, menjadi langkah strategis untuk mendukung pengambilan keputusan yang lebih efektif dalam mengurangi risiko gagal panen yang pada akhirnya berpotensi mengakibatkan kekurangan pangan [4]. Dengan adanya proyeksi awal ini, pihak terkait dapat melakukan evaluasi dan pengambilan keputusan yang lebih baik guna mencegah terjadinya kekurangan pangan.  
 Dalam membangun model analisis prediksi hasil panen ini, digunakan pendekatan regresi multivariat yang memungkinkan penggabungan berbagai faktor secara simultan untuk menghasilkan prediksi yang akurat serta dapat diandalkan. Model ini dibangun menggunakan data produksi pertanian dan faktor lingkungan dari berbagai negara dan jenis tanaman. Data historis tersebut akan dilatih untuk mengenali pola hubungan antara variabel lingkungan dan hasil panen. Hasil prediksi dari model ini diharapkan dapat membantu pengambilan kebijakan serta petani dalam merencanakan strategi produksi dan mitigasi risiko terkait ketahanan pangan, sehingga mendukung ketahanan pangan global secara berkelanjutan.
-Referensi
-[1]	A. Suryana, “Menuju Ketahanan Pangan Indonesia Berkelanjutan 2025: Tantangan dan Penanganannya,” forum penelit. agro ekon., vol. 32, no. 2, p. 123, Oct. 2014, doi: 10.21082/fae.v32n2.2014.123-135.
-[2]	G. Pérez-Lucas, G. Navarro, and S. Navarro, “Adapting agriculture and pesticide use in Mediterranean regions under climate change scenarios: A comprehensive review,” European Journal of Agronomy, vol. 161, p. 127337, Nov. 2024, doi: 10.1016/j.eja.2024.127337.
-[3]	M. Amin, L. Budiman, and D. Suhendi, “RESILIENSI PENGUATAN KETAHANAN PANGAN DAERAH DI INDONESIA,” Jurnal Perlindungan Masyarakat Bestuur Praesidium, vol. 1, no. 2, pp. 63–71, 2024.
-[4]	T. Nizami, M. A. Mustaqiim, and W. Ariannor, “Analisis Kinerja Model Machine learning dalam Prediksi Gagal Panen Gabah,” vol. 21, no. 1, pp. 184–192, 2025, doi: http://dx.doi.org/10.35889/progresif.v21i1.2501.
+### Referensi
+[1]	A. Suryana, “Menuju Ketahanan Pangan Indonesia Berkelanjutan 2025: Tantangan dan Penanganannya,” forum penelit. agro ekon., vol. 32, no. 2, p. 123, Oct. 2014, doi: 10.21082/fae.v32n2.2014.123-135.  
+[2]	G. Pérez-Lucas, G. Navarro, and S. Navarro, “Adapting agriculture and pesticide use in Mediterranean regions under climate change scenarios: A comprehensive review,” European Journal of Agronomy, vol. 161, p. 127337, Nov. 2024, doi: 10.1016/j.eja.2024.127337.  
+[3]	M. Amin, L. Budiman, and D. Suhendi, “RESILIENSI PENGUATAN KETAHANAN PANGAN DAERAH DI INDONESIA,” Jurnal Perlindungan Masyarakat Bestuur Praesidium, vol. 1, no. 2, pp. 63–71, 2024.  
+[4]	T. Nizami, M. A. Mustaqiim, and W. Ariannor, “Analisis Kinerja Model Machine learning dalam Prediksi Gagal Panen Gabah,” vol. 21, no. 1, pp. 184–192, 2025, doi: http://dx.doi.org/10.35889/progresif.v21i1.2501.  
 
 ## Business Understanding
 
@@ -29,15 +29,25 @@ Tujuan dari pernyataan masalah:
 
 
 ## Data Understanding
-Dataset yang digunakan dalam proyek ini bersumber dari data open source Crop Yield Prediction Dataset di Kaggle yang berisikan informasi berupa data produksi pertanian dan faktor lingkungan dari berbagai negara dan jenis tanaman selama rentang tahun 1990-2013. Dataset ini terdiri atas 28.242 entri dengan 7 kolom yang mencakup informasi penting, memungkinkan analisis dan prediksi hasil panen dengan mempertimbangkan berbagai variabel iklim dan agrikultural yang berkontribusi terhadap ketahanan pangan global.  
+Dataset yang digunakan dalam proyek ini bersumber dari data open source [Crop Yield Prediction Dataset](https://www.google.com/url?q=https%3A%2F%2Fwww.kaggle.com%2Fdatasets%2Fmrigaankjaswal%2Fcrop-yield-prediction-dataset) di Kaggle yang berisikan informasi berupa data produksi pertanian dan faktor lingkungan dari berbagai negara dan jenis tanaman selama rentang tahun 1990-2013. Dataset ini terdiri atas 28.242 entri dengan 7 kolom yang mencakup informasi penting, memungkinkan analisis dan prediksi hasil panen dengan mempertimbangkan berbagai variabel iklim dan agrikultural yang berkontribusi terhadap ketahanan pangan global.  
 
-### Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
-- accepts : merupakan jenis pembayaran yang diterima pada restoran tertentu.
-- cuisine : merupakan jenis masakan yang disajikan pada restoran.
-- dst
+### Variabel-variabel pada Cro Yield Dataset adalah sebagai berikut:
+-	**Area (Country)** : Kolom ini berisikan nama negara atau wilayah dimana data berasal, yang  merupakan kategorikal tanpa adanya missing value.
+-	**Item** : Kolom berisikan jenis produk pertanian atau tanaman yang dianalisis, data ini berbentuk kategorikal.
+-	**Year** : Tahun pengamatan data, yang merekam hasil pane dan variabel terkait secara longitudinal
+-	**hg/ha_yield** : Variabel target berupa hasil panen hektogram per hektar (hg/ha), yang akan diprediksi.
+-	**average_rain_fall_mm_per_year** : Rata-rata curah hujan tahunan (mm), faktor lingkungan utama yang memengaruhi produksi.
+-	**pesticides_tonnes** : Jumlah pestisida yang digunakan dalam satuan ton, yang dapat berdampak pada hasil panen dan lingkungan.
+-	**avg_temp** : Suhu rata-rata tahunan dalam derajat Celsius, yang mempengaruhi pertumbuhan dan hasil tanaman.
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data atau exploratory data analysis.
+### Exploratory Data Analysis (EDA):
+EDA dilakukan dengan memeriksa struktur data pada dataset yang digunakan. Dataset terdiri dari 28.242 entri dan 5 fitur numerik setelah transformasi log. Pemeriksaan awal menggunakan **df.info()** menunjukkan tidak ada nilai yang hilang. **df.describe()** memberikan gambaran tentang sebaran data, menunjukkan nilai rata-rata dan standar deviasi yang konsisten untuk setiap fitur. Tidak ditemukan duplikasi setelah pengecekan dengan **df.duplicated()**. Untuk lebih memahami data dilakukan visualisasi untuk beberapa poin berikut. 
+-	**Matriks Boxplot**
+ 
+Pada gambar diagram boxplot memperlihatkan bahwa fitur hg/ha_yield dan pesticides_tonnes memiliki banyak pencilan (ditunjukkan oleh titik-titik di luar whisker), menunjukkan adanya nilai ekstrim yang mungkin perlu diperhatikan atau ditangani lebih lanjut.
+-	**Matriks Distribusi**
+ ![Boxplot](path/to/your/boxplot_image.png)
+Histogram Distribusi memperlihatkan bentuk distribusi dari setiap fitur. hg/ha_yield dan pesticides_tonnes memiliki distribusi miring ke kanan (right-skewed), menunjukkan banyak nilai rendah dan beberapa nilai yang sangat tinggi.
 
 ## Data Preparation
 Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
